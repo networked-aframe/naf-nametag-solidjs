@@ -86,11 +86,6 @@ const EnterScreen = () => {
         id="playButton"
         class="btn"
         onClick={() => {
-          const player = document.getElementById('player');
-          player.setAttribute('player-info', {
-            name: username(),
-            color: color(),
-          });
           AFRAME.scenes[0].emit('connect');
           setEntered(true);
         }}
