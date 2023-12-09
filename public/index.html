@@ -12,42 +12,9 @@
     <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.2.0/dist/aframe-extras.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/aframe-environment-component@1.3.3/dist/aframe-environment-component.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/networked-aframe@0.11.1/examples/js/spawn-in-circle.component.js"></script>
-    <script defer src="/dist/ui.min.js"></script>
 
-    <script>
-      // Temporary workaround for template declaration; see issue 167
-      NAF.schemas.getComponentsOriginal = NAF.schemas.getComponents;
-      NAF.schemas.getComponents = (template) => {
-        if (!NAF.schemas.hasTemplate('#head-template')) {
-          NAF.schemas.add({
-            template: '#head-template',
-            components: ['position', 'rotation', 'player-info'],
-          });
-        }
-
-        const components = NAF.schemas.getComponentsOriginal(template);
-        return components;
-      };
-    </script>
-
-    <script>
-      AFRAME.registerComponent('player-info', {
-        schema: {
-          name: { type: 'string', default: 'anonymous' },
-          color: { type: 'color', default: '#ffffff' },
-        },
-
-        init: function () {
-          this.head = this.el.querySelector('.head');
-          this.nametag = this.el.querySelector('.nametag');
-        },
-
-        update: function () {
-          if (this.head) this.head.setAttribute('material', 'color', this.data.color);
-          if (this.nametag) this.nametag.setAttribute('value', this.data.name);
-        },
-      });
-    </script>
+    <script src="/dist/components.js"></script>
+    <script defer src="/dist/ui.js"></script>
   </head>
 
   <body>
