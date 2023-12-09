@@ -14,6 +14,10 @@
 }
 
 @layer components {
+  .bg-panel {
+    background-color: var(--panel-bg);
+  }
+
   .btn {
     @apply inline-block p-2 font-bold shadow-md transition duration-150 ease-in-out;
     background-color: var(--btn-primary-bg);
@@ -24,9 +28,5 @@
     &.hover {
       background-color: var(--btn-primary-bg-hover);
     }
-  }
-
-  .bg-panel {
-    background-color: var(--panel-bg);
   }
 }
