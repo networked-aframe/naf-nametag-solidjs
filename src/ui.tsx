@@ -64,7 +64,7 @@ const ColorChangerAndUsername = () => {
 
 const SettingsScreen = () => {
   return (
-    <div class="bg-panel absolute inset-0 z-10 flex flex-col items-center justify-center gap-2">
+    <div class="naf-centered-fullscreen">
       <ColorChangerAndUsername />
       <button
         type="button"
@@ -82,7 +82,7 @@ const SettingsScreen = () => {
 
 const EnterScreen = () => {
   return (
-    <div class="bg-panel absolute inset-0 z-10 flex flex-col items-center justify-center gap-2">
+    <div class="naf-centered-fullscreen">
       <ColorChangerAndUsername />
       <button
         type="button"
@@ -102,7 +102,7 @@ const EnterScreen = () => {
 
 const BottomBar = () => {
   return (
-    <div class="absolute bottom-6 left-6 z-10 flex items-center gap-4">
+    <div class="naf-bottom-bar-center">
       <button
         type="button"
         id="settingsButton"
