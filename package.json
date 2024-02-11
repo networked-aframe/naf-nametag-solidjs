@@ -19,7 +19,8 @@
     "networked-aframe": "^0.11.0",
     "solid-element": "^1.8.0",
     "solid-icons": "^1.1.0",
-    "solid-js": "^1.8.5"
+    "solid-js": "^1.8.5",
+    "solid-media-linkify": "vincentfretin/solid-media-linkify#76bd96d"
   },
   "engines": {
     "node": ">=16"

@@ -70,6 +70,18 @@
     @apply rounded-full;
   }
 
+  /* For the send button in ChatPanel */
+  .btn-in-input {
+    @apply text-gray-600;
+    &:hover {
+      color: var(--btn-primary-bg);
+    }
+    &[disabled],
+    &[disabled]:hover {
+      @apply text-gray-600;
+    }
+  }
+
   .naf-centered-fullscreen {
     @apply bg-panel absolute inset-0 z-10 flex flex-col items-center justify-center gap-2;
   }
