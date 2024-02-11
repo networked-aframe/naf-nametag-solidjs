@@ -39,6 +39,15 @@ module.exports = {
         },
       },
       {
+        test: /solid-icons.*\.(ts|js)x?$/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['solid'],
+          },
+        },
+      },
+      {
         test: /\.css$/,
         use: ['style-loader', 'css-loader', 'postcss-loader'],
       },
