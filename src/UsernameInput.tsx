@@ -15,22 +15,25 @@ interface Props {
 
 export const UsernameInput: Component<Props> = (props) => {
   onMount(() => {
-    const name = localStorage.getItem('username');
-    if (name) {
-      setUsername(name);
+    const savedName = localStorage.getItem('username');
+    if (savedName) {
+      setUsername(savedName);
+    }
+
+    const savedColor = localStorage.getItem('color');
+    if (savedColor) {
+      setColor(savedColor);
     }
   });
 
   createEffect(() => {
-    const player = document.getElementById('player');
-    if (player) {
-      // @ts-ignore
-      player.setAttribute('player-info', {
-        name: username(),
-        color: color(),
-      });
-    }
     localStorage.setItem('username', username());
+    localStorage.setItem('color', color());
+    // @ts-ignore
+    document.getElementById('player')?.setAttribute('player-info', {
+      name: username(),
+      color: color(),
+    });
   });
 
   let colorChangerBtn!: HTMLButtonElement;
