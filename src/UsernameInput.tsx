@@ -11,6 +11,7 @@ export const [color, setColor] = createSignal(randomColor());
 
 interface Props {
   enableColorPicker?: boolean;
+  entity?: string;
 }
 
 export const UsernameInput: Component<Props> = (props) => {
@@ -30,7 +31,7 @@ export const UsernameInput: Component<Props> = (props) => {
     localStorage.setItem('username', username());
     localStorage.setItem('color', color());
     // @ts-ignore
-    document.getElementById('player')?.setAttribute('player-info', {
+    document.querySelector(props.entity ?? '#player')?.setAttribute('player-info', {
       name: username(),
       color: color(),
     });

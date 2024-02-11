@@ -8,7 +8,7 @@ customElement('naf-mic-button', () => {
   return <MicButton />;
 });
 
-customElement('naf-username-input', () => {
+customElement('naf-username-input', { entity: '#player', enableColorPicker: true }, (props) => {
   noShadowDOM();
-  return <UsernameInput />;
+  return <UsernameInput {...props} />;
 });

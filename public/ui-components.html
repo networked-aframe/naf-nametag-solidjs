@@ -28,10 +28,6 @@
   </head>
 
   <body>
-    <div class="naf-bottom-bar-center">
-      <naf-username-input></naf-username-input>
-      <naf-mic-button></naf-mic-button>
-    </div>
     <a-scene
       renderer="physicallyCorrectLights:true;colorManagement:true"
       networked-scene="
@@ -87,5 +83,10 @@
         ></a-entity>
       </a-entity>
     </a-scene>
+    <div class="naf-bottom-bar-center">
+      <!-- This needs to be after the a-scene so the player element can be found. -->
+      <naf-username-input entity="#player" enable-color-picker="true"></naf-username-input>
+      <naf-mic-button></naf-mic-button>
+    </div>
   </body>
 </html>

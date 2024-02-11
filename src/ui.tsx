@@ -14,7 +14,7 @@ const SettingsScreen = () => {
     <div class="naf-centered-fullscreen">
       <div class="flex flex-col gap-2">
         <label for="username">Your name</label>
-        <UsernameInput />
+        <UsernameInput entity="#player" />
       </div>
       <button
         type="button"
@@ -35,7 +35,7 @@ const EnterScreen = () => {
     <div class="naf-centered-fullscreen">
       <div class="flex flex-col gap-2">
         <label for="username">Your name</label>
-        <UsernameInput />
+        <UsernameInput entity="#player" />
       </div>
       <button
         type="button"
