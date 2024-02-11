@@ -24,6 +24,12 @@
     border-color: var(--btn-primary-bg);
   }
 
+  input,
+  textarea,
+  select {
+    @apply text-gray-900;
+  }
+
   a {
     @apply text-sky-800;
   }
@@ -74,7 +80,7 @@
   .btn-in-input {
     @apply text-gray-600;
     &:hover {
-      color: var(--btn-primary-bg);
+      color: var(--btn-primary-bg-hover);
     }
     &[disabled],
     &[disabled]:hover {
