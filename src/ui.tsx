@@ -2,6 +2,7 @@
 import './assets/style.css';
 import { render } from 'solid-js/web';
 import { Show, createEffect, createSignal, onMount } from 'solid-js';
+import { IoSettingsOutline } from 'solid-icons/io';
 
 const randomColor = () => {
   // @ts-ignore
@@ -106,12 +107,13 @@ const BottomBar = () => {
       <button
         type="button"
         id="settingsButton"
-        class="btn text-sm"
+        class="btn-secondary btn-rounded"
         onClick={() => {
           setShowSettings(true);
         }}
+        title="Settings"
       >
-        Settings
+        <IoSettingsOutline size={24} />
       </button>
     </div>
   );
