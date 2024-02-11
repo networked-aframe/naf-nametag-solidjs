@@ -12,7 +12,10 @@ const [entered, setEntered] = createSignal(false);
 const SettingsScreen = () => {
   return (
     <div class="naf-centered-fullscreen">
-      <UsernameInput />
+      <div class="flex flex-col gap-2">
+        <label for="username">Your name</label>
+        <UsernameInput />
+      </div>
       <button
         type="button"
         id="saveSettingsButton"
@@ -30,7 +33,10 @@ const SettingsScreen = () => {
 const EnterScreen = () => {
   return (
     <div class="naf-centered-fullscreen">
-      <UsernameInput />
+      <div class="flex flex-col gap-2">
+        <label for="username">Your name</label>
+        <UsernameInput />
+      </div>
       <button
         type="button"
         id="playButton"
