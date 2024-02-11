@@ -3,6 +3,7 @@ import './assets/style.css';
 import { render } from 'solid-js/web';
 import { Show, createEffect, createSignal, onMount } from 'solid-js';
 import { IoSettingsOutline } from 'solid-icons/io';
+import { MicButton } from './MicButton';
 
 const randomColor = () => {
   // @ts-ignore
@@ -115,6 +116,7 @@ const BottomBar = () => {
       >
         <IoSettingsOutline size={24} />
       </button>
+      <MicButton />
     </div>
   );
 };
