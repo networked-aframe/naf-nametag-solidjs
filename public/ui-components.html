@@ -84,10 +84,16 @@
         ></a-entity>
       </a-entity>
     </a-scene>
+    <!--
+      You can change the bar position with one of the following classes
+      naf-top-bar-left naf-top-bar-center naf-top-bar-right
+      naf-bottom-bar-left naf-bottom-bar-center naf-bottom-bar-right
+    -->
     <div class="naf-bottom-bar-center">
       <!-- This needs to be after the a-scene so the player element can be found. -->
       <naf-username-input entity="#player" enable-color-picker="true"></naf-username-input>
       <naf-mic-button></naf-mic-button>
+      <!-- When you add the naf-chat-button, don't forget to add the naf-chat-panel outside the bar as well -->
       <naf-chat-button></naf-chat-button>
     </div>
     <naf-chat-panel></naf-chat-panel>
