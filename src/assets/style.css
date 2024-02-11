@@ -16,6 +16,7 @@
 @layer components {
   .bg-panel {
     background-color: var(--panel-bg);
+    color: var(--panel-text);
   }
 
   .btn {
