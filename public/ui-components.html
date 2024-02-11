@@ -14,18 +14,6 @@
     <script src="https://cdn.jsdelivr.net/npm/networked-aframe@0.11.1/examples/js/spawn-in-circle.component.js"></script>
 
     <script src="/dist/components.js"></script>
-    <script src="/dist/ui-components.js"></script>
-    <style>
-      /* You can override colors with css properties used by the ui components, see colors.css for the full list */
-      :root {
-        --panel-bg: #171717; /* bg-neutral-800 */
-        --panel-text: #e2e8f0; /* text-slate-200 */
-        --btn-primary-bg: #0f766e; /* bg-teal-700 */
-        --btn-primary-bg-hover: #115e59; /* bg-teal-800 */
-        --btn-primary-text: #e2e8f0; /* text-slate-200 */
-        --btn-border-radius: 0.5rem;
-      }
-    </style>
   </head>
 
   <body>
@@ -84,6 +72,19 @@
         ></a-entity>
       </a-entity>
     </a-scene>
+
+    <script src="/dist/ui-components.js"></script>
+    <style>
+      /* You can override colors with css properties used by the ui components, see colors.css for the full list */
+      :root {
+        --panel-bg: #171717; /* bg-neutral-800 */
+        --panel-text: #e2e8f0; /* text-slate-200 */
+        --btn-primary-bg: #0f766e; /* bg-teal-700 */
+        --btn-primary-bg-hover: #115e59; /* bg-teal-800 */
+        --btn-primary-text: #e2e8f0; /* text-slate-200 */
+        --btn-border-radius: 0.5rem;
+      }
+    </style>
     <!--
       You can change the bar position with one of the following classes
       naf-top-bar-left naf-top-bar-center naf-top-bar-right
