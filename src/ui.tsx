@@ -1,73 +1,18 @@
-/* global AFRAME THREE */
+/* global AFRAME */
 import './assets/style.css';
 import { render } from 'solid-js/web';
-import { Show, createEffect, createSignal, onMount } from 'solid-js';
+import { Show, createSignal } from 'solid-js';
 import { IoSettingsOutline } from 'solid-icons/io';
 import { MicButton } from './MicButton';
-
-const randomColor = () => {
-  // @ts-ignore
-  return '#' + new THREE.Color(Math.random(), Math.random(), Math.random()).getHexString();
-};
+import { UsernameInput } from './UsernameInput';
 
 const [showSettings, setShowSettings] = createSignal(false);
 const [entered, setEntered] = createSignal(false);
-const [username, setUsername] = createSignal('user-' + Math.round(Math.random() * 10000));
-const [color, setColor] = createSignal(randomColor());
-
-const ColorChangerAndUsername = () => {
-  onMount(() => {
-    const name = localStorage.getItem('username');
-    if (name) {
-      setUsername(name);
-    }
-  });
-
-  createEffect(() => {
-    const player = document.getElementById('player');
-    if (player) {
-      // @ts-ignore
-      player.setAttribute('player-info', {
-        name: username(),
-        color: color(),
-      });
-    }
-    localStorage.setItem('username', username());
-  });
-
-  let colorChangerBtn!: HTMLButtonElement;
-  let nametagInput!: HTMLInputElement;
-  return (
-    <div>
-      <button
-        ref={colorChangerBtn}
-        id="color-changer"
-        class="h-7 w-7"
-        style={`background-color:${color()};color:${color()}`}
-        onClick={() => {
-          setColor(randomColor());
-        }}
-      >
-        ■
-      </button>
-
-      <input
-        ref={nametagInput}
-        class="h-7 px-1"
-        id="username-overlay"
-        value={username()}
-        oninput={() => {
-          setUsername(nametagInput.value);
-        }}
-      />
-    </div>
-  );
-};
 
 const SettingsScreen = () => {
   return (
     <div class="naf-centered-fullscreen">
-      <ColorChangerAndUsername />
+      <UsernameInput />
       <button
         type="button"
         id="saveSettingsButton"
@@ -85,7 +30,7 @@ const SettingsScreen = () => {
 const EnterScreen = () => {
   return (
     <div class="naf-centered-fullscreen">
-      <ColorChangerAndUsername />
+      <UsernameInput />
       <button
         type="button"
         id="playButton"
