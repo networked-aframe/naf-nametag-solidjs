@@ -36,33 +36,28 @@ export const UsernameInput: Component<Props> = (props) => {
     });
   });
 
-  let colorChangerBtn!: HTMLButtonElement;
-  let nametagInput!: HTMLInputElement;
   return (
-    <div>
-      <Show when={props.enableColorPicker ?? true}>
-        <button
-          ref={colorChangerBtn}
-          id="color-changer"
-          class="h-7 w-7"
-          style={`background-color:${color()};color:${color()}`}
-          onClick={() => {
-            setColor(randomColor());
-          }}
-        >
-          ■
-        </button>
-      </Show>
-
+    <div class="flex flex-row items-center">
       <input
-        ref={nametagInput}
-        class="h-7 px-1"
         id="username"
+        class="h-7 px-1"
         value={username()}
-        oninput={() => {
-          setUsername(nametagInput.value);
+        oninput={(e: any) => {
+          setUsername(e.target.value);
         }}
       />
+      <Show when={props.enableColorPicker ?? true}>
+        <input
+          id="avatarcolor"
+          type="color"
+          title="Pick a color for your avatar"
+          class="h-7 w-7"
+          value={color()}
+          onchange={(e: any) => {
+            setColor(e.target.value);
+          }}
+        />
+      </Show>
     </div>
   );
 };
