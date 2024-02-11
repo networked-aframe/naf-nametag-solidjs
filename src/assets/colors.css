@@ -3,5 +3,8 @@
   --btn-primary-bg: rgb(71 85 105); /* bg-slate-600 */
   --btn-primary-bg-hover: rgb(51 65 85); /* bg-slate-700 */
   --btn-primary-text: rgb(226 232 240); /* text-slate-200 */
+  --btn-secondary-bg: rgb(38 38 38); /* bg-neutral-800 */
+  --btn-secondary-bg-hover: rgb(64 64 64); /* bg-neutral-600 */
+  --btn-secondary-text: rgb(203 213 225); /* text-slate-300 */
   --btn-border-radius: 0.5rem; /* rounded-lg */
 }

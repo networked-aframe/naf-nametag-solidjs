@@ -29,4 +29,23 @@
       background-color: var(--btn-primary-bg-hover);
     }
   }
+
+  .btn-secondary {
+    @apply btn;
+    background-color: var(--btn-secondary-bg);
+    color: var(--btn-secondary-text);
+
+    &:hover,
+    &.hover {
+      background-color: var(--btn-secondary-bg-hover);
+    }
+
+    &.active {
+      background-color: var(--btn-primary-bg);
+    }
+  }
+
+  .btn-rounded {
+    @apply rounded-full;
+  }
 }
