@@ -3,6 +3,7 @@ const path = require('path');
 module.exports = {
   entry: {
     components: './src/components.js',
+    'ui-components': './src/ui-components.tsx',
     ui: './src/ui.tsx',
   },
   output: {
