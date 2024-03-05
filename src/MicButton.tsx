@@ -1,5 +1,5 @@
 /* global NAF */
-import { createEffect, createMemo, createSignal, onCleanup, onMount, Show } from 'solid-js';
+import { createEffect, createMemo, createSignal, onCleanup, onMount, Show, untrack } from 'solid-js';
 import { BsMic, BsMicMute } from 'solid-icons/bs';
 
 const savedMicEnabled = localStorage.getItem('micEnabled');
@@ -25,6 +25,7 @@ export const MicButton = () => {
     } else {
       const listener = () => {
         setIsConnected(true);
+        NAF.connection.adapter?.enableMicrophone?.(untrack(micEnabled));
       };
       document.body.addEventListener('connected', listener);
       onCleanup(() => {
