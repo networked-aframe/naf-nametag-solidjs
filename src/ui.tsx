@@ -20,12 +20,12 @@ const SettingsScreen = () => {
       <button
         type="button"
         id="saveSettingsButton"
-        class="btn"
+        class="btn min-w-[100px]"
         onClick={() => {
           setShowSettings(false);
         }}
       >
-        OK
+        Close
       </button>
     </div>
   );
@@ -41,7 +41,7 @@ const EnterScreen = () => {
       <button
         type="button"
         id="playButton"
-        class="btn"
+        class="btn min-w-[100px]"
         onClick={() => {
           // @ts-ignore
           AFRAME.scenes[0].emit('connect');
