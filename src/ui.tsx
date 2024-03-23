@@ -10,13 +10,19 @@ import { ChatButton, ChatPanel } from './Chat';
 const [showSettings, setShowSettings] = createSignal(false);
 const [entered, setEntered] = createSignal(false);
 
+const UserForm = () => {
+  return (
+    <div class="flex flex-col gap-2">
+      <label for="username">Your name</label>
+      <UsernameInput entity="#player" />
+    </div>
+  );
+};
+
 const SettingsScreen = () => {
   return (
     <div class="naf-centered-fullscreen">
-      <div class="flex flex-col gap-2">
-        <label for="username">Your name</label>
-        <UsernameInput entity="#player" />
-      </div>
+      <UserForm />
       <button
         type="button"
         id="saveSettingsButton"
@@ -34,10 +40,7 @@ const SettingsScreen = () => {
 const EnterScreen = () => {
   return (
     <div class="naf-centered-fullscreen">
-      <div class="flex flex-col gap-2">
-        <label for="username">Your name</label>
-        <UsernameInput entity="#player" />
-      </div>
+      <UserForm />
       <button
         type="button"
         id="playButton"
