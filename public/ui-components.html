@@ -93,7 +93,12 @@
         <naf-username-input entity="#player" enable-color-picker="true"></naf-username-input>
         <!-- This sets name and color properties on your player-info component on #player entity -->
       </div>
-      <button type="button" class="btn" style="min-width: 100px" onclick="javascript:AFRAME.scenes[0].emit('connect')">
+      <button
+        type="button"
+        class="btn"
+        style="min-width: 100px"
+        onclick="javascript:AFRAME.scenes[0].emit('connect');this.parentNode.remove();document.getElementById('uiInRoom').removeAttribute('style')"
+      >
         Enter
       </button>
     </div>
@@ -109,11 +114,5 @@
       <naf-chat-button></naf-chat-button>
     </div>
     <naf-chat-panel></naf-chat-panel>
-    <script>
-      document.body.addEventListener('connected', () => {
-        document.getElementById('enterScreen').setAttribute('style', 'display:none');
-        document.getElementById('uiInRoom').removeAttribute('style');
-      });
-    </script>
   </body>
 </html>
