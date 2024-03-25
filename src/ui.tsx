@@ -5,7 +5,8 @@ import { Show, createSignal } from 'solid-js';
 import { IoSettingsOutline } from 'solid-icons/io';
 import { MicButton } from './MicButton';
 import { UsernameInput } from './UsernameInput';
-import { ChatButton, ChatPanel } from './Chat';
+import { ChatButton } from './Chat';
+import { UsersButton } from './UsersButton';
 
 const [showSettings, setShowSettings] = createSignal(false);
 const [entered, setEntered] = createSignal(false);
@@ -72,6 +73,7 @@ const BottomBar = () => {
         <IoSettingsOutline size={24} />
       </button>
       <MicButton />
+      <UsersButton />
       <ChatButton />
     </div>
   );
@@ -87,7 +89,6 @@ const App = () => {
         <SettingsScreen />
       </Show>
       <Show when={entered() && !showSettings()}>
-        <ChatPanel />
         <BottomBar />
       </Show>
     </>

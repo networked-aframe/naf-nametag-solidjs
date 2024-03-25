@@ -18,14 +18,20 @@ AFRAME.registerComponent('player-info', {
   schema: {
     name: { type: 'string', default: 'anonymous' },
     color: { type: 'color', default: '#ffffff' },
+    muted: { type: 'boolean', default: false },
   },
 
   init: function () {
     this.head = this.el.querySelector('.head');
     this.nametag = this.el.querySelector('.nametag');
+    this.updatedEventDetail = { data: undefined, oldData: undefined };
   },
 
-  update: function () {
+  update: function (oldData) {
+    this.updatedEventDetail.data = this.data;
+    this.updatedEventDetail.oldData = oldData;
+    this.updatedEventDetail.el = this.el;
+    this.el.sceneEl.emit('player-info-updated', this.updatedEventDetail);
     if (this.head) this.head.setAttribute('material', 'color', this.data.color);
     if (this.nametag) this.nametag.setAttribute('value', this.data.name);
   },
