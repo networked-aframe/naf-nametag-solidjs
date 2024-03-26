@@ -83,23 +83,25 @@ export const MicButton = () => {
   });
 
   return (
-    <button
-      class="btn-secondary btn-rounded"
-      classList={{ active: !iconMuted() }}
-      onClick={() => {
-        setMicEnabled((enabled) => !enabled);
-        // @ts-ignore
-        document.activeElement.blur();
-        document.body.focus();
-      }}
-      title={title()}
-    >
-      <Show when={!iconMuted()}>
-        <BsMic size={24} />
-      </Show>
-      <Show when={iconMuted()}>
-        <BsMicMute size={24} />
-      </Show>
-    </button>
+    <Show when={audioEnabled()}>
+      <button
+        class="btn-secondary btn-rounded"
+        classList={{ active: !iconMuted() }}
+        onClick={() => {
+          setMicEnabled((enabled) => !enabled);
+          // @ts-ignore
+          document.activeElement.blur();
+          document.body.focus();
+        }}
+        title={title()}
+      >
+        <Show when={!iconMuted()}>
+          <BsMic size={24} />
+        </Show>
+        <Show when={iconMuted()}>
+          <BsMicMute size={24} />
+        </Show>
+      </button>
+    </Show>
   );
 };
