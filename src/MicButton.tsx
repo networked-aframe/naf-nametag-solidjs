@@ -6,6 +6,32 @@ const savedMicEnabled = localStorage.getItem('micEnabled');
 export const [micEnabled, setMicEnabled] = createSignal(savedMicEnabled === 'true');
 const [isConnected, setIsConnected] = createSignal(false);
 
+export const [audioEnabled, setAudioEnabled] = createSignal(false);
+
+document.addEventListener('DOMContentLoaded', () => {
+  const sceneEl = document.querySelector('a-scene');
+
+  const sceneLoaded = () => {
+    // @ts-ignore
+    const settings = sceneEl?.getAttribute('networked-scene'); // this returns a string and not an object if scene is not loaded
+    // @ts-ignore
+    const adapter = settings.adapter;
+    if (adapter !== 'easyrtc' && adapter !== 'janus') return;
+    // @ts-ignore
+    if (adapter === 'easyrtc' && !settings.audio) return;
+
+    setAudioEnabled(true);
+  };
+
+  // @ts-ignore
+  if (sceneEl.hasLoaded) {
+    sceneLoaded();
+  } else {
+    // @ts-ignore
+    sceneEl.addEventListener('loaded', sceneLoaded);
+  }
+});
+
 export const MicButton = () => {
   const iconMuted = createMemo(() => {
     return !micEnabled();

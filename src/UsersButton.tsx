@@ -6,6 +6,7 @@ import { FiUsers } from 'solid-icons/fi';
 import { BsMic, BsMicMute } from 'solid-icons/bs';
 import { VsChromeClose } from 'solid-icons/vs';
 import { setShowChatPanel } from './Chat';
+import { audioEnabled } from './MicButton';
 
 export interface Presence {
   id: string;
@@ -103,10 +104,10 @@ export const UsersButton: Component = () => {
             <For each={presences}>
               {(p) => (
                 <div class="flex items-center space-x-1 text-sm font-medium">
-                  <Show when={!p.muted}>
+                  <Show when={!p.muted && audioEnabled()}>
                     <BsMic size={20} />
                   </Show>
-                  <Show when={p.muted}>
+                  <Show when={p.muted && audioEnabled()}>
                     <BsMicMute size={20} />
                   </Show>
                   <span>{p.name}</span>
