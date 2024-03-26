@@ -109,7 +109,8 @@
       naf-bottom-bar-left naf-bottom-bar-center naf-bottom-bar-right
     -->
     <div class="naf-bottom-bar-center" style="display: none" id="uiInRoom">
-      <naf-mic-button></naf-mic-button>
+      <naf-mic-button entity="#player"></naf-mic-button>
+      <!-- This sets muted property on your player-info component on #player entity -->
       <naf-users-button></naf-users-button>
       <naf-chat-button></naf-chat-button>
     </div>
