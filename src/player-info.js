@@ -24,7 +24,7 @@ AFRAME.registerComponent('player-info', {
   init: function () {
     this.head = this.el.querySelector('.head');
     this.nametag = this.el.querySelector('.nametag');
-    this.updatedEventDetail = { data: undefined, oldData: undefined };
+    this.updatedEventDetail = { el: undefined, data: undefined, oldData: undefined };
   },
 
   update: function (oldData) {
@@ -32,6 +32,9 @@ AFRAME.registerComponent('player-info', {
     this.updatedEventDetail.oldData = oldData;
     this.updatedEventDetail.el = this.el;
     this.el.sceneEl.emit('player-info-updated', this.updatedEventDetail);
+    this.updatedEventDetail.data = undefined;
+    this.updatedEventDetail.oldData = undefined;
+    this.updatedEventDetail.el = undefined;
     if (this.head) this.head.setAttribute('material', 'color', this.data.color);
     if (this.nametag) this.nametag.setAttribute('value', this.data.name);
   },
