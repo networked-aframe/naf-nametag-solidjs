@@ -47,8 +47,9 @@ const EnterScreen = () => {
         id="playButton"
         class="btn min-w-[100px]"
         onClick={() => {
+          const sceneEl = document.querySelector('a-scene');
           // @ts-ignore
-          AFRAME.scenes[0].emit('connect');
+          sceneEl?.emit('connect');
           setEntered(true);
         }}
       >
