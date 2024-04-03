@@ -10,6 +10,7 @@ import { UsersButton } from './UsersButton';
 
 const [showSettings, setShowSettings] = createSignal(false);
 const [entered, setEntered] = createSignal(false);
+const [sceneLoaded, setSceneLoaded] = createSignal(false);
 
 const UserForm = () => {
   return (
@@ -47,10 +48,22 @@ const EnterScreen = () => {
         id="playButton"
         class="btn min-w-[100px]"
         onClick={() => {
-          const sceneEl = document.querySelector('a-scene');
-          // @ts-ignore
-          sceneEl?.emit('connect');
           setEntered(true);
+          const sceneEl = document.querySelector('a-scene');
+          // emit connect when the scene has loaded
+          const sceneLoadedCallback = () => {
+            setSceneLoaded(true);
+            // @ts-ignore
+            sceneEl?.emit('connect');
+          };
+
+          // @ts-ignore
+          if (sceneEl.hasLoaded) {
+            sceneLoadedCallback();
+          } else {
+            // @ts-ignore
+            sceneEl.addEventListener('loaded', sceneLoadedCallback);
+          }
         }}
       >
         Enter
@@ -89,7 +102,7 @@ const App = () => {
       <Show when={showSettings()}>
         <SettingsScreen />
       </Show>
-      <Show when={entered() && !showSettings()}>
+      <Show when={entered() && sceneLoaded() && !showSettings()}>
         <BottomBar />
       </Show>
     </>
