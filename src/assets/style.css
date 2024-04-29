@@ -29,6 +29,16 @@
     border-color: var(--btn-primary-bg);
   }
 
+  .form-checkbox,
+  .form-radio {
+    color: var(--btn-primary-bg);
+  }
+
+  .form-checkbox:focus,
+  .form-radio:focus {
+    --tw-ring-color: var(--btn-primary-bg);
+  }
+
   .bg-panel {
     background-color: var(--panel-bg);
     color: var(--panel-text);
