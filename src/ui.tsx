@@ -72,7 +72,7 @@ const EnterScreen = () => {
   );
 };
 
-const BottomBar = () => {
+const BottomBarCenter = () => {
   return (
     <div class="naf-bottom-bar-center">
       <button
@@ -103,7 +103,7 @@ const App = () => {
         <SettingsScreen />
       </Show>
       <Show when={entered() && sceneLoaded() && !showSettings()}>
-        <BottomBar />
+        <BottomBarCenter />
       </Show>
     </>
   );
